@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     hello world
     <div v-if="show">show me</div>
     <div>
