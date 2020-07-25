@@ -5,6 +5,7 @@ const webpack = require("webpack");
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = merge(base, {
+  target: 'node',
   mode: isProd ? 'production':'development',
   entry: {
     app: './src/entry-server.js'

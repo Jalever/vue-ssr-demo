@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    hello world
-    <div v-if="show">show me</div>
     <div>
-      <button @click="toggle">toggle</button>
+      I am the navigation bar
+      <router-link to="/home">Go to Home</router-link>
+      <router-link to="/test">Go to Home</router-link>
     </div>
+
+    <router-view></router-view>
   </div>
 </template>
 
