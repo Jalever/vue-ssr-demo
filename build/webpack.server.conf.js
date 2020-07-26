@@ -7,9 +7,7 @@ const isProd = process.env.NODE_ENV === 'production';
 module.exports = merge(base, {
   target: 'node',
   mode: isProd ? 'production':'development',
-  entry: {
-    app: './src/entry-server.js'
-  },
+  entry: './src/entry-server.js',
   output: {
     filename: 'server-bundle.js',
     libraryTarget: 'commonjs2'

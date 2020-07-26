@@ -17,17 +17,29 @@ server.get('*', (req, res) => {
     meta: `
       <meta charset="utf-8" //>
     `,
+    url: req.url
   }
 
-  createApp({
-    url: req.url,
-  }).then((app) => {
+  createApp(context).then((app) => {
     renderer.renderToString(app, context, (err, html) => {
-      if (err) return res.status(500).end('Internal Server Error!')
+      if (err) {
+        if (err.code === 404) {
+           res.status(404).end('Page not found')
+         } else {
+           res.status(500).end('Internal Server Error')
+         }
+         return
+      }
 
       res.send(html)
     })
-  }).catch(err => res.status(404).end('Page Not Found!'));
+  }).catch(err => {
+    console.warn('err');
+    console.log(err);
+    console.log('\n');
+    
+    res.status(404).end('Page Not Found!')
+  });
 })
 
 server.listen(8080, () => {

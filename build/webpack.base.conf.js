@@ -9,10 +9,10 @@ module.exports = {
   // },
   output: {
     path: path.resolve(__dirname, './../dist'),
-    filename: 'bundle.js',
     publicPath: '/'
   },
   module: {
+    noParse: /es6-promise\.js$/, // avoid webpack shimming process
     rules: [
       {
         test: /\.vue$/,

@@ -1,19 +1,23 @@
 <template>
-  <div>Home Page</div>
+  <div id="app">
+    hello home
+    <div v-if="show">show me</div>
+    <div>
+      <button @click="toggle">toggle</button>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-  props: {},
-  components: {},
   data() {
-    return {}
+    return {
+      show: true,
+    }
   },
-  computed: {},
-  mounted() {},
-  filters: {},
-  watch: {},
-  methods: {},
+  methods: {
+    toggle() {
+      this.show = !this.show
+    },
+  },
 }
 </script>
-
-<style lang="less" scoped></style>
